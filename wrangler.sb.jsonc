@@ -4,8 +4,8 @@
  */
 {
 	"$schema": "node_modules/wrangler/config-schema.json",
-	"name": "service-bindings-bug",
-	"main": "src/index.ts",
+	"name": "my-service-bindings",
+	"main": "src/service-bindings.ts",
 	"compatibility_date": "2025-02-24",
 	"observability": {
 		"enabled": true
@@ -16,18 +16,18 @@
 	"services": [
 		{
 			"binding": "MY_SERVICE_1",
-			"service": "my-service-bindings"
+			"service": "my-service-bindings" // self-reference
 		},
 		{
 			"binding": "MY_SERVICE_2",
-			"service": "my-service-bindings",
+			"service": "my-service-bindings", // self-reference
 			"entrypoint": "MyService2"
 		}
 	]
-  /**
-   * Smart Placement
-   * Docs: https://developers.cloudflare.com/workers/configuration/smart-placement/#smart-placement
-   */
+	/**
+	 * Smart Placement
+	 * Docs: https://developers.cloudflare.com/workers/configuration/smart-placement/#smart-placement
+	 */
   // "placement": { "mode": "smart" },
 
   /**
